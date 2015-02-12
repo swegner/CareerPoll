@@ -23,7 +23,8 @@
     <IISExpressUseClassicPipelineMode />
     <NuGetPackageImportStamp>051d92b1</NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/ad498f9c-4efc-48d0-b989-22b0ccc244e8/resourcegroups/CareerPoll.Web/providers/microsoft.insights/components/CareerPoll.Web</ApplicationInsightsResourceId>
-  </PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
