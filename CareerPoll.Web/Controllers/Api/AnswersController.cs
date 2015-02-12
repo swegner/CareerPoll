@@ -14,9 +14,9 @@ namespace CareerPoll.Web.Controllers.Api
         private CareerPollDataModel db = new CareerPollDataModel();
 
         [HttpGet, Route("api/answers")]
-        public IQueryable<Answer> GetAnswers()
+        public string GetAnswers()
         {
-            return db.Answers;
+            return "42!";
         }
 
         // GET: api/Answers/5
