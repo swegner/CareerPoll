@@ -1,8 +1,19 @@
 "use strict";
+var should = require("should")
 
-var assert = require("assert");
-describe('sample', function() {
-    it('should always pass', function() {
-        assert.equal(3, 3);
+describe('server', function() {
+    var server = require("./server.js");
+
+    describe('greeting', function() {
+        var response = server.greeting();
+
+        it('should be friendly', function() {
+            response.should.startWith('hello');
+        });
+
+        it ('should address the world', function(){
+            response.should.endWith('world');
+        });
     });
+
 });
