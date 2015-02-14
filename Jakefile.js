@@ -2,8 +2,10 @@
 (function() {
     "use strict";
 
+    // Jake documentation: http://howtonode.org/intro-to-jake
+
     desc("Do all the things");
-    task("default", ["lint"], function() {
+    task("default", ["lint", "test"], function() {
         console.log("done!");
     });
 
@@ -20,6 +22,18 @@
         var config = getLintConfig();
         var pass = lint.validateFileList(files.toArray(), config.options, config.globals);
         if (!pass) fail("Lint failed");
+    });
+
+    desc("Run tests");
+    // Mocha documentation: http://mochajs.org/
+    var mocha = require("jake-mocha");
+    mocha.defineTask({
+        name: 'test',
+        files: 'src/*_test.js',
+        mochaOptions: {
+            ui: 'bdd',
+            reporter: 'spec'
+        }
     });
 
     function getLintConfig() {

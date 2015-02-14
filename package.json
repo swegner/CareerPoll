@@ -3,6 +3,9 @@
   "private": true,
   "dependencies": {
     "jake": "^8.0.10",
-    "jake-jshint": "0.0.4"
+    "jake-jshint": "0.0.4",
+    "jake-mocha": "^0.9.0",
+    "mocha": "^2.1.0",
+    "tap": "^0.6.0"
   }
 }

@@ -9,9 +9,7 @@ Minimum Marketable Features:
 - add or remove questions
 
 User Stories:
-- build system
-- continuous integration
-- server tests
+* server tests
 - "hello world" server
 - deployment script
 - return question list
