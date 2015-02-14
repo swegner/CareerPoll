@@ -17,4 +17,5 @@ User Stories:
 - return question list
 
 Engineering Tasks:
-- linting
+* linting
+- js-beautify
