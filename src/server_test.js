@@ -15,9 +15,15 @@ describe('server', function() {
         });
 
         it('should listen on port 8080', function(done) {
-            http.get('http://localhost:8080', function() {
-                done();
-            });
+            httpGet(done);
         });
+
+        it('should respond with a nice greeting');
+
+        function httpGet(callback) {
+            http.get('http://localhost:8080', function() {
+                callback();
+            });
+        }
     });
 });
