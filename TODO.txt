@@ -9,7 +9,7 @@ Minimum Marketable Features:
 - add or remove questions
 
 User Stories:
-* build system
+- build system
 - continuous integration
 - server tests
 - "hello world" server
@@ -17,5 +17,3 @@ User Stories:
 - return question list
 
 Engineering Tasks:
-* linting
-- js-beautify
