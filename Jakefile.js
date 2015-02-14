@@ -18,6 +18,7 @@
 
         var files = new jake.FileList();
         files.include("./*.js");
+        files.include("src/**/*.js");
 
         var config = getLintConfig();
         var pass = lint.validateFileList(files.toArray(), config.options, config.globals);
