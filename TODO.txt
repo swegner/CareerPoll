@@ -10,6 +10,7 @@ Minimum Marketable Features:
 
 User Stories:
 * build system
+- continuous integration
 - server tests
 - "hello world" server
 - deployment script
