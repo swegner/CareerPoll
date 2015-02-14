@@ -184,3 +184,6 @@ FakesAssemblies/
 
 # NCrunch temp files
 nCrunchTemp_*
+
+# Sublime temp files
+*.sublime-workspace
