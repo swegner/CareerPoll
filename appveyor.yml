@@ -10,3 +10,6 @@ install:
   - npm install
 
 build_script: .\jake.ps1
+
+cache:
+  - node_modules
