@@ -31,12 +31,17 @@ describe('server', function() {
     describe('default endpoint', function() {
 
         var response;
+        var responseMessage = '';
         before(function(done) {
             server.start();
 
             response = httpGet(function(resp) {
                 response = resp;
-                done();
+
+                resp.on('data', function(chunk) {
+                    responseMessage += chunk;
+                });
+                resp.on('end', done);
             });
         });
 
@@ -46,6 +51,10 @@ describe('server', function() {
 
         it('returns success status code.', function() {
             response.statusCode.should.be.exactly(200);
+        });
+
+        it ('returns a nice greeting', function() {
+            responseMessage.should.be.exactly('hello world!');
         });
     });
 });
