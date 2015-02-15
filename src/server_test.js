@@ -35,7 +35,7 @@ describe('server', function() {
         before(function(done) {
             server.start();
 
-            response = httpGet(function(resp) {
+            httpGet(function(resp) {
                 response = resp;
 
                 resp.on('data', function(chunk) {

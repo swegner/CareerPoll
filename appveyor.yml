@@ -5,7 +5,7 @@ install:
   # install modules
   - npm install
 
-build_script: 
+build_script:
   - ps: .\jake.ps1
 
 cache:
