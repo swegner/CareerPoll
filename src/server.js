@@ -7,6 +7,8 @@ exports.start = function() {
     server = http.createServer();
     server.on("request", function(request, response) {
         console.log("received request");
+
+        response.setHeader('Content-Type', 'text/plain');
         response.end("hello world!");
     });
 

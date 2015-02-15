@@ -9,9 +9,7 @@ Minimum Marketable Features:
 - add or remove questions
 
 User Stories:
-- "hello world" server
 - deployment script
 - return question list
 
 Engineering Tasks:
-- set content type

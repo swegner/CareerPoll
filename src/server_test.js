@@ -56,5 +56,12 @@ describe('server', function() {
         it ('returns a nice greeting', function() {
             responseMessage.should.be.exactly('hello world!');
         });
+
+        it('should set the content type', function() {
+            var contentType = response.headers['content-type'];
+
+            should.exist(contentType);
+            contentType.should.be.exactly('text/plain');
+        });
     });
 });
