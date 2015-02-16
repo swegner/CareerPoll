@@ -2,26 +2,30 @@
 var should = require("should");
 
 describe('server', function() {
+
+    var PORT = 8080;
+
     var server = require("./server.js");
     var http = require("http");
 
 
     function httpGet(callback) {
-        http.get('http://localhost:8080', function(resp) {
+        var url = 'http://localhost:' + PORT;
+        http.get(url, function(resp) {
             callback(resp);
         });
     }
 
     describe('start', function() {
         before(function() {
-            server.start();
+            server.start(PORT);
         });
 
         after(function(done) {
             server.stop(done);
         });
 
-        it('should listen on port 8080', function(done) {
+        it('should listen on specified port', function(done) {
             httpGet(function() {
                 done();
             });
@@ -33,7 +37,7 @@ describe('server', function() {
         var response;
         var responseMessage = '';
         before(function(done) {
-            server.start();
+            server.start(PORT);
 
             httpGet(function(resp) {
                 response = resp;

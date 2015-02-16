@@ -1,1 +1,1 @@
-node run.js
+node app.js
