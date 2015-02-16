@@ -13,3 +13,5 @@ User Stories:
 - return question list
 
 Engineering Tasks:
+* deployment script
+- ci-triggered deployment
