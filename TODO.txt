@@ -10,10 +10,12 @@ Minimum Marketable Features:
 - add or remove questions
 
 User Stories:
-* return question list
+* continuous integration
+- return question list
 
 Engineering Tasks:
-* API get endpoint
-- empty json packet
+* Kick off deployment from CI
+
+Next Task:
 - single question
 - multiple questions
