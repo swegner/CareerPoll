@@ -1,5 +1,8 @@
+/* jshint expr:true */
+
 "use strict";
-var should = require("should");
+var should = require('should');
+require('should-http');
 
 describe('server', function() {
 
@@ -68,10 +71,7 @@ describe('server', function() {
         });
 
         it('should set the content type', function() {
-            var contentType = response.headers['content-type'];
-
-            should.exist(contentType);
-            contentType.should.be.exactly('text/plain');
+            response.should.header('content-type', 'text/plain');
         });
     });
 
@@ -98,6 +98,16 @@ describe('server', function() {
 
         it('should return valid JSON', function() {
             var jsonMessage = JSON.parse(responseMessage);
+        });
+
+        it('should set the content type', function() {
+            response.should.be.json;
+        });
+
+        it('should be contain an array of questions', function() {
+            var jsonMessage = JSON.parse(responseMessage);
+            (jsonMessage instanceof Array).should.eql(true);
+
         });
     });
 

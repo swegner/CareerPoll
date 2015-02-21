@@ -3,10 +3,11 @@
   "private": true,
   "dependencies": {
     "jake": "^8.0.10",
-    "jake-jshint": "0.0.4",
+    "jake-jshint": "git://github.com/swegner/jake-jshint#upgrade-jshint",
     "jake-mocha": "^0.9.0",
     "mocha": "^2.1.0",
     "should": "^5.0.0",
+    "should-http": "0.0.2",
     "tap": "^0.6.0"
   }
 }

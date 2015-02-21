@@ -14,7 +14,8 @@ exports.start = function(port) {
             message = "hello world!";
         }
         else if (request.url === '/questions') {
-            message = '{ }';
+            response.setHeader('Content-Type', 'application/json');
+            message = '[ ]';
         }
         else {
             // 404'ed!!
