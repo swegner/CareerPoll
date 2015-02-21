@@ -11,23 +11,6 @@ describe('server', function() {
     var server = require("./server.js");
     var http = require("http");
 
-
-    function httpGet(route, callback) {
-        var url = 'http://localhost:' + PORT + '/' + route;
-        http.get(url, function(resp) {
-            var response = resp;
-            var responseMessage = '';
-
-            resp.on('data', function(chunk) {
-                responseMessage += chunk;
-            });
-
-            resp.on('end', function() {
-                callback(response, responseMessage);
-            });
-        });
-    }
-
     describe('start', function() {
         before(function() {
             server.start(PORT);
@@ -66,12 +49,13 @@ describe('server', function() {
             response.statusCode.should.be.exactly(200);
         });
 
-        it ('returns a nice greeting', function() {
-            responseMessage.should.be.exactly('hello world!');
+        it('sets the content type', function() {
+            response.should.header('content-type', 'text/plain');
         });
 
-        it('should set the content type', function() {
-            response.should.header('content-type', 'text/plain');
+        it('routes to the home controller', function() {
+            // Just make sure we get some friendly text back.
+            responseMessage.length.should.be.greaterThan(0);
         });
     });
 
@@ -96,7 +80,8 @@ describe('server', function() {
             response.statusCode.should.be.exactly(200);
         });
 
-        it('should return valid JSON', function() {
+        it('routes to the questions controller', function() {
+            // Just make sure we hvae valid JSON
             var jsonMessage = JSON.parse(responseMessage);
         });
 
@@ -131,4 +116,20 @@ describe('server', function() {
             response.statusCode.should.be.exactly(404);
         });
     });
+
+    function httpGet(route, callback) {
+        var url = 'http://localhost:' + PORT + '/' + route;
+        http.get(url, function(resp) {
+            var response = resp;
+            var responseMessage = '';
+
+            resp.on('data', function(chunk) {
+                responseMessage += chunk;
+            });
+
+            resp.on('end', function() {
+                callback(response, responseMessage);
+            });
+        });
+    }
 });

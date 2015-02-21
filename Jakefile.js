@@ -30,7 +30,7 @@
     var mocha = require("jake-mocha");
     mocha.defineTask({
         name: 'test',
-        files: 'src/*_test.js',
+        files: 'src/**/*_test.js',
         mochaOptions: {
             ui: 'bdd',
             reporter: 'spec'

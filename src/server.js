@@ -10,12 +10,16 @@ exports.start = function(port) {
 
         var message;
         if (request.url === '/') {
+            var homeController = require('./controllers/homeController.js');
+
             response.setHeader('Content-Type', 'text/plain');
-            message = "hello world!";
+            message = homeController.getIndex();
         }
         else if (request.url === '/questions') {
+            var questionsController = require('./controllers/questionsController.js');
+
+            message = JSON.stringify(questionsController.getAll());
             response.setHeader('Content-Type', 'application/json');
-            message = '[ ]';
         }
         else {
             // 404'ed!!
