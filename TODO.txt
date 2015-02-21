@@ -4,14 +4,16 @@ Minimum Marketable Features:
 * get current list of questions
 - submit answers for questions
 - web UI for submitting answers
+- different question types
 - get all submitted answers
 - web UI to view submitted answers
 - add or remove questions
 
 User Stories:
-- deployment script
-- return question list
+* return question list
 
 Engineering Tasks:
-* deployment script
-- ci-triggered deployment
+* API get endpoint
+- empty json packet
+- single question
+- multiple questions

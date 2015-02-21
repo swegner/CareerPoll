@@ -13,6 +13,9 @@ exports.start = function(port) {
             response.setHeader('Content-Type', 'text/plain');
             message = "hello world!";
         }
+        else if (request.url === '/questions') {
+            message = 'aww yeah';
+        }
         else {
             // 404'ed!!
             response.writeHead(404);

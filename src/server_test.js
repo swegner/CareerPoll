@@ -75,6 +75,28 @@ describe('server', function() {
         });
     });
 
+    describe('questions endpoint', function() {
+        var response;
+        var responseMessage = '';
+        before(function(done) {
+            server.start(PORT);
+
+            httpGet('questions', function(resp, msg) {
+                response = resp;
+                responseMessage = msg;
+                done();
+            });
+        });
+
+        after(function(done) {
+            server.stop(done);
+        });
+
+        it('should return success', function() {
+            response.statusCode.should.be.exactly(200);
+        });
+    });
+
     describe('all other URLs', function() {
 
         var response;
