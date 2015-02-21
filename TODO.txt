@@ -10,12 +10,15 @@ Minimum Marketable Features:
 - add or remove questions
 
 User Stories:
-* continuous integration
 - return question list
 
 Engineering Tasks:
-* Kick off deployment from CI
-
-Next Task:
 - single question
 - multiple questions
+
+
+Future Ideas:
+- Redirect homepage to github
+- E2E / smoke tests
+- Handle server errors better
+- Custom 404 page
