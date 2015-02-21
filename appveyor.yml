@@ -8,5 +8,8 @@ install:
 build_script:
   - ps: .\jake.ps1
 
+deploy_script:
+    - ps: .\publish.ps1
+
 cache:
   - node_modules
