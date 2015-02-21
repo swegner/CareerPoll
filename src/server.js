@@ -14,7 +14,7 @@ exports.start = function(port) {
             message = "hello world!";
         }
         else if (request.url === '/questions') {
-            message = 'aww yeah';
+            message = '{ }';
         }
         else {
             // 404'ed!!

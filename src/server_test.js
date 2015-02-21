@@ -95,6 +95,10 @@ describe('server', function() {
         it('should return success', function() {
             response.statusCode.should.be.exactly(200);
         });
+
+        it('should return valid JSON', function() {
+            var jsonMessage = JSON.parse(responseMessage);
+        });
     });
 
     describe('all other URLs', function() {
