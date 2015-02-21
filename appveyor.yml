@@ -8,8 +8,14 @@ install:
 build_script:
   - ps: .\jake.ps1
 
+environment:
+  access_token:
+    secure: vNPH+/+k84yMFmpiw/Ddy8pkHzt+EKRIKjyxwNO6AEpN5+ncMwGbz75yVv1jVFvi
+
 deploy_script:
-    - ps: .\publish.ps1
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token)@careerpoll.scm.azurewebsites.net%3a443`n"
+  - ps: .\publish.ps1
 
 cache:
   - node_modules
