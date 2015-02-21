@@ -9,10 +9,19 @@ describe('server', function() {
     var http = require("http");
 
 
-    function httpGet(callback) {
-        var url = 'http://localhost:' + PORT;
+    function httpGet(route, callback) {
+        var url = 'http://localhost:' + PORT + '/' + route;
         http.get(url, function(resp) {
-            callback(resp);
+            var response = resp;
+            var responseMessage = '';
+
+            resp.on('data', function(chunk) {
+                responseMessage += chunk;
+            });
+
+            resp.on('end', function() {
+                callback(response, responseMessage);
+            });
         });
     }
 
@@ -26,7 +35,7 @@ describe('server', function() {
         });
 
         it('should listen on specified port', function(done) {
-            httpGet(function() {
+            httpGet('', function() {
                 done();
             });
         });
@@ -39,13 +48,10 @@ describe('server', function() {
         before(function(done) {
             server.start(PORT);
 
-            httpGet(function(resp) {
+            httpGet('', function(resp, msg) {
                 response = resp;
-
-                resp.on('data', function(chunk) {
-                    responseMessage += chunk;
-                });
-                resp.on('end', done);
+                responseMessage = msg;
+                done();
             });
         });
 
@@ -66,6 +72,27 @@ describe('server', function() {
 
             should.exist(contentType);
             contentType.should.be.exactly('text/plain');
+        });
+    });
+
+    describe('all other URLs', function() {
+
+        var response;
+        before(function(done) {
+            server.start(PORT);
+
+            httpGet('anyOtherUrl', function(resp) {
+                response = resp;
+                done();
+            });
+        });
+
+        after(function(done) {
+            server.stop(done);
+        });
+
+        it('should return a 404', function() {
+            response.statusCode.should.be.exactly(404);
         });
     });
 });

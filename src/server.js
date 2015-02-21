@@ -8,8 +8,17 @@ exports.start = function(port) {
     server.on("request", function(request, response) {
         console.log("received request");
 
-        response.setHeader('Content-Type', 'text/plain');
-        response.end("hello world!");
+        var message;
+        if (request.url === '/') {
+            response.setHeader('Content-Type', 'text/plain');
+            message = "hello world!";
+        }
+        else {
+            // 404'ed!!
+            response.writeHead(404);
+        }
+
+        response.end(message);
     });
 
     server.listen(port);
